@@ -14,11 +14,11 @@ channel='#alerts'
 token="$1"
 status="$2"
 
-# Switch emoji depending on status between smile (for RECOVERY) and ghost (for everything else, including PROBLEM)
+# Switch emoji depending on status between smile (for RECOVERY) and frowning (for everything else, including PROBLEM)
 if [ "$status" == 'RECOVERY' ]; then
     emoji=':smile:'
 else
-    emoji=':ghost:'
+    emoji=':frowning:'
 fi
 
 # The message that we want to send to Slack is the "status" value ($2 / $status - that we got earlier)
