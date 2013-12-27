@@ -1,5 +1,5 @@
 
-== Zabbix Slack AlertScript ==
+= Zabbix Slack AlertScript =
 
 I got a chance to write this custom Zabbix alert script for work to have Zabbix send alerts to a channel on our [https://slack.com/ Slack.com] account and could not find any already existing or similar scripts. However, this script likely only works with Zabbix 2.0 or greater - it has not been tested with Zabbix 1.8 or earlier.
 
