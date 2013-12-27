@@ -4,7 +4,9 @@ Zabbix Slack AlertScript
 
 About
 -----
-This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write for my employer since I could not find any already existing/similar scripts. This most likely only works with Zabbix 2.0 or greater - it has not been tested with Zabbix 1.8 or earlier.
+This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write for my employer since I could not find any already existing/similar scripts.
+
+This most likely only works with Zabbix 2.0 or greater - it has not been tested with Zabbix 1.8 or earlier.
 
 
 Installation
@@ -33,22 +35,25 @@ Feel free to edit the variables at the top of the script while making sure that 
 
 An incoming web-hook integration must be created within your Slack.com account which can be done at https://my.slack.com/services/new/incoming-webhook as shown below:
 
-![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/slack-integration.png "Slack.com Incoming Web-hook Integration")
+![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/github/slack-integration.png "Slack.com Incoming Web-hook Integration")
 
 Given the above screenshot, the Slack incoming web-hook token would be "abc123BCA321etc".
+
 
 ### Within the Zabbix web interface
 
 When logged in to the Zabbix servers web interface as a user with super-administrator privileges, click the "Create media type" button on the "Media types" sub-tab of the "Administration" tab.
+
 You need to create a media type with the name "Slack", type of "Script", script name of "slack.sh" that is enabled like so:
 
-![Zabbix Media Type](http://pictures.ericoc.com/zabbix-mediatype.png "Zabbix Media Type")
+![Zabbix Media Type](http://pictures.ericoc.com/github/zabbix-mediatype.png "Zabbix Media Type")
 
 Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com incoming web-hook token in the "Send to" field as seen below:
 
-![Zabbix User](http://pictures.ericoc.com/zabbix-user.png "Zabbix User")
+![Zabbix User](http://pictures.ericoc.com/github/zabbix-user.png "Zabbix User")
 
 Finally, an action can then be created on the "Actions" sub-tab of the "Configuration" tab within the Zabbix servers web interface to notify the Zabbix "Slack" user ensuring that the "Subject" is "PROBLEM" for "Default message" and "RECOVERY" should you choose to send a "Recovery message".
+
 Keeping the messages short is probably a good idea - use something such as "{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})" for the contents of each message.
 
 
