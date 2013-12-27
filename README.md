@@ -9,6 +9,9 @@ This is simply a Bash script that uses the custom alert script functionality wit
 
 Installation
 ------------
+
+### The script itself
+
 The ["slack.sh" script](https://github.com/ericoc/zabbix-slack-alertscript/raw/master/slack.sh) needs to be placed in the "AlertScriptsPath" directory that is specified within the Zabbix servers' configuration file (zabbix_server.conf) and must be executable by the user (usually "zabbix") running the zabbix_server binary on the Zabbix server before restarting the Zabbix server software:
 
 	[root@zabbix ~]# grep AlertScriptsPath /etc/zabbix/zabbix_server.conf
@@ -18,18 +21,23 @@ The ["slack.sh" script](https://github.com/ericoc/zabbix-slack-alertscript/raw/m
 	[root@zabbix ~]# ls -lh /usr/local/share/zabbix/alertscripts/slack.sh
 	-rwxr-xr-x 1 root root 1.4K Dec 27 13:48 /usr/local/share/zabbix/alertscripts/slack.sh
 
-Feel free to edit the variables at the top of the script while making sure that you specify an existing channel and your correct .slack.com sub-domain:
+Feel free to edit the variables at the top of the script while making sure that you specify an existing channel and your correct ".slack.com" sub-domain:
 
 	# Slack sub-domain name (without '.slack.com'), user name, and the channel to send the message to
 	subdomain='myorgname'
 	username='Zabbix'
 	channel='#alerts'
 
-An incoming web-hook integration must be created within your Slack.com account which can be done at https://slack.com/services/new/incoming-webhook as shown below:
+
+### At Slack.com
+
+An incoming web-hook integration must be created within your Slack.com account which can be done at https://my.slack.com/services/new/incoming-webhook as shown below:
 
 ![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/slack-integration.png "Slack.com Incoming Web-hook Integration")
 
 Given the above screenshot, the Slack incoming web-hook token would be "abc123BCA321etc".
+
+### Within the Zabbix web interface
 
 When logged in to the Zabbix servers web interface as a user with super-administrator privileges, click the "Create media type" button on the "Media types" sub-tab of the "Administration" tab.
 You need to create a media type with the name "Slack", type of "Script", script name of "slack.sh" that is enabled like so:
