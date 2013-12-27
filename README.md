@@ -1,7 +1,8 @@
 
-= Zabbix Slack AlertScript =
+Zabbix Slack AlertScript
+========================
 
-I got a chance to write this custom Zabbix alert script for work to have Zabbix send alerts to a channel on our [https://slack.com/ Slack.com] account and could not find any already existing or similar scripts. However, this script likely only works with Zabbix 2.0 or greater - it has not been tested with Zabbix 1.8 or earlier.
+I got a chance to write this custom Zabbix alert script for work to have Zabbix send alerts to a channel on our [Slack.com](https://slack.com/) account and could not find any already existing or similar scripts. However, this script likely only works with Zabbix 2.0 or greater - it has not been tested with Zabbix 1.8 or earlier.
 
 The "slack.sh" script needs to be placed in the "AlertScriptsPath" directory that is specified within the Zabbix servers' configuration file (zabbix_server.conf) and must be executable by the user (usually "zabbix") running the zabbix_server binary on the Zabbix server before restarting the Zabbix server software:
 
@@ -18,5 +19,4 @@ TODO: screenshots/better explanation of the set-up on both slack.com and within 
 
 * More information:
 
- * Zabbix (2.2) custom alertscripts documentation:
-  * https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script
+ * [Zabbix (2.2) custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
