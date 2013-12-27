@@ -10,20 +10,22 @@ channel='#alerts'
 # Subject = $2 (usually either PROBLEM or RECOVERY)
 # Message = $3 (whatever message the Zabbix action sends, preferably something like "Zabbix server is unreachable for 5 minutes - Zabbix server (127.0.0.1)")
 
-# Get the Slack incoming web-hook token ($1) and either PROBLEM or RECOVERY ($2) from Zabbix
+# Get the Slack incoming web-hook token ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY)
 token="$1"
-status="$2"
+subject="$2"
 
-# Switch emoji depending on status between smile (for RECOVERY) and frowning (for everything else, including PROBLEM)
-if [ "$status" == 'RECOVERY' ]; then
-    emoji=':smile:'
+# Change message emoji depending on the subject - smile (RECOVERY), frowning (PROBLEM), or ghost (for everything else)
+if [ "$subject" == 'RECOVERY' ]; then
+	emoji=':smile:'
+elif [ "$subject" == 'PROBLEM' ]; then
+	emoji=':frowning:'
 else
-    emoji=':frowning:'
+	emoji=':ghost:'
 fi
 
-# The message that we want to send to Slack is the "status" value ($2 / $status - that we got earlier)
+# The message that we want to send to Slack is the "subject" value ($2 / $subject - that we got earlier)
 #  followed by the message that Zabbix actually sent us ($3)
-message="${status}: $3"
+message="${subject}: $3"
 
 # Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
 payload="payload={\"channel\": \"${channel}\", \"username\": \"${username}\", \"text\": \"${message}\", \"icon_emoji\": \"${emoji}\"}"
