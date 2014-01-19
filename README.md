@@ -4,7 +4,7 @@ Zabbix Slack AlertScript
 
 About
 -----
-This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write for my employer since I could not find any already existing/similar scripts.
+This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write since I could not find any already existing/similar scripts.
 
 This most likely only works with Zabbix 2.0 or greater - it has not been tested with Zabbix 1.8 or earlier.
 
