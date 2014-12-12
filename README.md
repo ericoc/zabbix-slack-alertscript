@@ -33,7 +33,11 @@ Feel free to edit the variables at the top of the script while making sure that 
 
 ### At Slack.com
 
-An incoming web-hook integration must be created within your Slack.com account which can be done at https://my.slack.com/services/new/incoming-webhook . After selecting which channel to post the notifications to, set the url variable on line 7 to the "Webhook URL".
+An incoming web-hook integration must be created within your Slack.com account which can be done at https://my.slack.com/services/new/incoming-webhook as shown below:
+
+![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/github/slack-integration.png "Slack.com Incoming Web-hook Integration")
+
+Given the above screenshot, the Slack incoming web-hook token would be "abc123BCA321etc".
 
 
 ### Within the Zabbix web interface
@@ -44,15 +48,16 @@ You need to create a media type with the name "Slack", type of "Script", script 
 
 ![Zabbix Media Type](http://pictures.ericoc.com/github/zabbix-mediatype.png "Zabbix Media Type")
 
-Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created.
+Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com incoming web-hook token in the "Send to" field as seen below:
+
+![Zabbix User](http://pictures.ericoc.com/github/zabbix-user.png "Zabbix User")
 
 Finally, an action can then be created on the "Actions" sub-tab of the "Configuration" tab within the Zabbix servers web interface to notify the Zabbix "Slack" user ensuring that the "Subject" is "PROBLEM" for "Default message" and "RECOVERY" should you choose to send a "Recovery message".
 
-Keeping the messages short is probably a good idea - use something such as "{TRIGGER.STATUS} ::: {HOST.NAME1} ::: {TRIGGER.NAME})" for the contents of each message.
+Keeping the messages short is probably a good idea - use something such as "{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})" for the contents of each message.
 
 
 More Information
 ----------------
  * [Slack incoming web-hook functionality](https://my.slack.com/services/new/incoming-webhook)
  * [Zabbix (2.2) custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
- * [Zabbix (2.4) custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
