@@ -48,11 +48,11 @@ Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab w
 
 Finally, an action can then be created on the "Actions" sub-tab of the "Configuration" tab within the Zabbix servers web interface to notify the Zabbix "Slack" user ensuring that the "Subject" is "PROBLEM" for "Default message" and "RECOVERY" should you choose to send a "Recovery message".
 
-Keeping the messages short is probably a good idea - use something such as "{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})" for the contents of each message.
+Keeping the messages short is probably a good idea - use something such as "{TRIGGER.STATUS} ::: {HOST.NAME1} ::: {TRIGGER.NAME})" for the contents of each message.
 
 
 More Information
 ----------------
  * [Slack incoming web-hook functionality](https://my.slack.com/services/new/incoming-webhook)
  * [Zabbix (2.2) custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
-* [Zabbix (2.4) custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
+ * [Zabbix (2.4) custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
