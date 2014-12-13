@@ -1,17 +1,16 @@
 #!/bin/bash
 
-# Slack sub-domain name (without '.slack.com'), user name, and the channel to send the message to
-subdomain='myorgname'
+# Slack incoming web-hook URL and user name
+url='CHANGEME'		# example: https://hooks.slack.com/services/QW3R7Y/D34DC0D3/abc123BCA321etc
 username='Zabbix'
-channel='#alerts'
 
 ## Values received by this script:
-# To = $1 (Slack.com incoming web-hook token, specified in the Zabbix web interface)
+# Channel = $1 (Slack channel to send the message to, specified in the Zabbix web interface)
 # Subject = $2 (usually either PROBLEM or RECOVERY)
 # Message = $3 (whatever message the Zabbix action sends, preferably something like "Zabbix server is unreachable for 5 minutes - Zabbix server (127.0.0.1)")
 
-# Get the Slack incoming web-hook token ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY)
-token="$1"
+# Get the Slack channel ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY)
+channel="$1"
 subject="$2"
 
 # Change message emoji depending on the subject - smile (RECOVERY), frowning (PROBLEM), or ghost (for everything else)
@@ -29,4 +28,4 @@ message="${subject}: $3"
 
 # Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
 payload="payload={\"channel\": \"${channel}\", \"username\": \"${username}\", \"text\": \"${message}\", \"icon_emoji\": \"${emoji}\"}"
-curl -m 5 --data "${payload}" "https://${subdomain}.slack.com/services/hooks/incoming-webhook?token=${token}"
+curl -m 5 --data "${payload}" $url
