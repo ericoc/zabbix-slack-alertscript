@@ -28,7 +28,7 @@ The ["slack.sh" script](https://github.com/ericoc/zabbix-slack-alertscript/raw/m
 Feel free to edit the user name at the top of the script while making sure that you specify your correct Slack.com incoming web-hook URL:
 
 	# Slack incoming web-hook URL and user name
-	url='https://hooks.slack.com/services/QW3R7Y/D34DC0D3/abc123BCA321etc'
+	url='https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123'
 	username='Zabbix'
 
 
@@ -38,7 +38,7 @@ An incoming web-hook integration must be created within your Slack.com account w
 
 ![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/github/newapi/slack-integration.png "Slack.com Incoming Web-hook Integration")
 
-Given the above screenshot, the incoming web-hook URL would be "https://hooks.slack.com/services/QW3R7Y/D34DC0D3/abc123BCA321etc".
+Given the above screenshot, the incoming web-hook URL would be "https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123".
 
 ### Within the Zabbix web interface
 

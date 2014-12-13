@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Slack incoming web-hook URL and user name
-url='CHANGEME'		# example: https://hooks.slack.com/services/QW3R7Y/D34DC0D3/abc123BCA321etc
+url='CHANGEME'		# example: https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123
 username='Zabbix'
 
 ## Values received by this script:
