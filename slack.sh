@@ -5,12 +5,12 @@ url='CHANGEME'		# example: https://hooks.slack.com/services/QW3R7Y/D34DC0D3/abc1
 username='Zabbix'
 
 ## Values received by this script:
-# Channel = $1 (Slack channel to send the message to, specified in the Zabbix web interface)
+# To/Channel = $1 (Slack channel to send the message to, specified in the Zabbix web interface)
 # Subject = $2 (usually either PROBLEM or RECOVERY)
 # Message = $3 (whatever message the Zabbix action sends, preferably something like "Zabbix server is unreachable for 5 minutes - Zabbix server (127.0.0.1)")
 
 # Get the Slack channel ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY)
-channel="$1"
+channel="#$1"
 subject="$2"
 
 # Change message emoji depending on the subject - smile (RECOVERY), frowning (PROBLEM), or ghost (for everything else)
