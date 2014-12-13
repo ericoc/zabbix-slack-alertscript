@@ -36,7 +36,7 @@ Feel free to edit the user name at the top of the script while making sure that 
 
 An incoming web-hook integration must be created within your Slack.com account which can be done at https://my.slack.com/services/new/incoming-webhook as shown below:
 
-![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/github/slack-integration.png "Slack.com Incoming Web-hook Integration")
+![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/github/newapi/slack-integration.png "Slack.com Incoming Web-hook Integration")
 
 Given the above screenshot, the incoming web-hook URL would be "https://hooks.slack.com/services/QW3R7Y/D34DC0D3/abc123BCA321etc".
 
@@ -50,7 +50,7 @@ You need to create a media type with the name "Slack", type of "Script", script 
 
 Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com channel name that you want messages ("alerts" in the example) to go to in the "Send to" field as seen below:
 
-![Zabbix User](http://pictures.ericoc.com/github/zabbix-user.png "Zabbix User")
+![Zabbix User](http://pictures.ericoc.com/github/newapi/zabbix-user.png "Zabbix User")
 
 Finally, an action can then be created on the "Actions" sub-tab of the "Configuration" tab within the Zabbix servers web interface to notify the Zabbix "Slack" user ensuring that the "Subject" is "PROBLEM" for "Default message" and "RECOVERY" should you choose to send a "Recovery message".
 Additionally, you can have multiple different Zabbix users with "Slack" media types that each send to unique channels for different actions.
