@@ -50,7 +50,7 @@ You need to create a media type with the name "Slack", type of "Script", script 
 
 Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com channel name ("#alerts" in the example) or user name (such as "@ericoc") to go to in the "Send to" field as seen below:
 
-![Zabbix User](http://pictures.ericoc.com/github/newapi/zabbix-user.png "Zabbix User")
+![Zabbix User](http://pictures.ericoc.com/github/zabbix-user.png "Zabbix User")
 
 Finally, an action can then be created on the "Actions" sub-tab of the "Configuration" tab within the Zabbix servers web interface to notify the Zabbix "Slack" user ensuring that the "Subject" is "PROBLEM" for "Default message" and "RECOVERY" should you choose to send a "Recovery message".
 Additionally, you can have multiple different Zabbix users with "Slack" media types that each notify unique Slack users or channels upon different Zabbix actions.
