@@ -10,7 +10,7 @@ username='Zabbix'
 # Message = $3 (whatever message the Zabbix action sends, preferably something like "Zabbix server is unreachable for 5 minutes - Zabbix server (127.0.0.1)")
 
 # Get the Slack channel ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY)
-channel="#$1"
+channel="$1"
 subject="$2"
 
 # Change message emoji depending on the subject - smile (RECOVERY), frowning (PROBLEM), or ghost (for everything else)
@@ -28,4 +28,4 @@ message="${subject}: $3"
 
 # Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
 payload="payload={\"channel\": \"${channel}\", \"username\": \"${username}\", \"text\": \"${message}\", \"icon_emoji\": \"${emoji}\"}"
-curl -m 5 --data "${payload}" $url
+curl -m 5 --data-urlencode "${payload}" $url
