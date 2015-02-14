@@ -48,7 +48,7 @@ You need to create a media type with the name "Slack", type of "Script", script 
 
 ![Zabbix Media Type](http://pictures.ericoc.com/github/zabbix-mediatype.png "Zabbix Media Type")
 
-Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com channel name ("#alerts" in the example) or user name (such as "@ericoc") to go to in the "Send to" field as seen below:
+Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com channel ("#alerts" in the example) or user name (such as "@ericoc") that you want messages to go to in the "Send to" field as seen below:
 
 ![Zabbix User](http://pictures.ericoc.com/github/zabbix-user.png "Zabbix User")
 
