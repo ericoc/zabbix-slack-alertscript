@@ -57,6 +57,16 @@ Additionally, you can have multiple different Zabbix users with "Slack" media ty
 
 Keeping the messages short is probably a good idea - use something such as "{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})" for the contents of each message.
 
+### Testing
+
+Assuming that you have set a valid Slack web-hook URL within your "slack.sh" file, you can execute the script manually (as opposed to via Zabbix) from Bash on a terminal:
+
+	$ bash slack.sh '@ericoc' PROBLEM 'Oh no! Something is wrong!'
+
+Alerting a specific user name results in the message actually coming from the "slackbot" user using a sort-of "spoofed" user name within the message. A channel alert is sent as you would normally expect from whatever user name you specify in "slack.sh":
+
+![Slack Testing](http://pictures.ericoc.com/github/slack-example.png "Slack Testing")
+
 
 More Information
 ----------------
