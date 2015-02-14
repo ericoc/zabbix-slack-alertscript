@@ -57,7 +57,7 @@ Additionally, you can have multiple different Zabbix users with "Slack" media ty
 
 Keeping the messages short is probably a good idea - use something such as "{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})" for the contents of each message.
 
-### Testing
+## Testing
 
 Assuming that you have set a valid Slack web-hook URL within your "slack.sh" file, you can execute the script manually (as opposed to via Zabbix) from Bash on a terminal:
 
