@@ -6,7 +6,7 @@ About
 -----
 This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write since I could not find any already existing/similar scripts.
 
-This most likely only works with Zabbix 2.0 or greater (including 2.2 and 2.4) - it has not been tested with Zabbix 1.8 or earlier.
+This definitely works with Zabbix 2.0 or greater (including 2.2 and 2.4) and thanks to Leslie at AspirationHosting for confirming that it works on 1.8.2 as well! 
 
 Thanks to [Paul Reeves](https://github.com/pdareeves/) for the hint that Slack changed their API/URLs recently as well as to [Igor Shishkin](https://github.com/teran) for the ability to message users as well as channels!
 
