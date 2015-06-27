@@ -6,9 +6,14 @@ About
 -----
 This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write since I could not find any already existing/similar scripts.
 
-This definitely works with Zabbix 2.0 or greater (including 2.2 and 2.4) and thanks to Leslie at AspirationHosting for confirming that it works on 1.8.2 as well! 
+#### Versions
+This definitely works with Zabbix 2.0 or greater (including 2.2 and 2.4) as well as Zabbix 1.8.2!
 
-Thanks to [Paul Reeves](https://github.com/pdareeves/) for the hint that Slack changed their API/URLs recently as well as to [Igor Shishkin](https://github.com/teran) for the ability to message users as well as channels!
+#### Huge thanks and appreciation to:
+
+* [Paul Reeves](https://github.com/pdareeves/) for the hint that Slack changed their API/URLs!
+* [Igor Shishkin](https://github.com/teran) for the ability to message users as well as channels!
+* Leslie at AspirationHosting for confirming that this script works on Zabbix 1.8.2
 
 
 Installation
@@ -34,17 +39,26 @@ Feel free to edit the user name at the top of the script while making sure that 
 
 ### At Slack.com
 
-An incoming web-hook integration must be created within your Slack.com account which can be done at https://my.slack.com/services/new/incoming-webhook as shown below:
+An incoming web-hook integration must be created within your Slack.com account which can be done at [https://my.slack.com/services/new/incoming-webhook](https://my.slack.com/services/new/incoming-webhook) as shown below:
 
 ![Slack.com Incoming Web-hook Integration](http://pictures.ericoc.com/github/newapi/slack-integration.png "Slack.com Incoming Web-hook Integration")
 
-Given the above screenshot, the incoming web-hook URL would be "https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123".
+Given the above screenshot, the incoming web-hook URL would be:
+
+	https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123
+
 
 ### Within the Zabbix web interface
 
-When logged in to the Zabbix servers web interface as a user with super-administrator privileges, click the "Create media type" button on the "Media types" sub-tab of the "Administration" tab.
+When logged in to the Zabbix servers web interface with super-administrator privileges, navigate to the "Administration" tab, access the "Media Types" sub-tab, and click the "Create media type" button.
 
-You need to create a media type with the name "Slack", type of "Script", script name of "slack.sh" that is enabled like so:
+You need to create a media type as follows:
+
+* **Name**: Slack
+* **Type**: Script
+* **Script name**: slack.sh
+
+...and ensure that it is enabled before clicking "Save", like so:
 
 ![Zabbix Media Type](http://pictures.ericoc.com/github/zabbix-mediatype.png "Zabbix Media Type")
 
@@ -53,9 +67,13 @@ Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab w
 ![Zabbix User](http://pictures.ericoc.com/github/zabbix-user.png "Zabbix User")
 
 Finally, an action can then be created on the "Actions" sub-tab of the "Configuration" tab within the Zabbix servers web interface to notify the Zabbix "Slack" user ensuring that the "Subject" is "PROBLEM" for "Default message" and "RECOVERY" should you choose to send a "Recovery message".
-Additionally, you can have multiple different Zabbix users with "Slack" media types that each notify unique Slack users or channels upon different Zabbix actions.
 
-Keeping the messages short is probably a good idea - use something such as "{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})" for the contents of each message.
+Keeping the messages short is probably a good idea; use something such as the following for the contents of each message:
+
+	{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})
+
+Additionally, you can have multiple different Zabbix users each with "Slack" media types that notify unique Slack users or channels upon different triggered Zabbix actions.
+
 
 ## Testing
 
@@ -70,6 +88,6 @@ Alerting a specific user name results in the message actually coming from the "s
 
 More Information
 ----------------
- * [Slack incoming web-hook functionality](https://my.slack.com/services/new/incoming-webhook)
- * [Zabbix (2.2) custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
- * [Zabbix (2.4) custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
+* [Slack incoming web-hook functionality](https://my.slack.com/services/new/incoming-webhook)
+* [Zabbix (2.2) custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
+* [Zabbix (2.4) custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
