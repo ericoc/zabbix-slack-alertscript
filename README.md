@@ -13,8 +13,8 @@ This definitely works with Zabbix 2.0 or greater (including 2.2 and 2.4) as well
 
 * [Paul Reeves](https://github.com/pdareeves/) for the hint that Slack changed their API/URLs!
 * [Igor Shishkin](https://github.com/teran) for the ability to message users as well as channels!
-* Leslie at AspirationHosting for confirming that this script works on Zabbix 1.8.2
-
+* Leslie at AspirationHosting for confirming that this script works on Zabbix 1.8.2!
+* [Hiromu Yakura](https://github.com/hiromu) for escaping quotation marks in the fields received from Zabbix to have valid JSON!
 
 Installation
 ------------
