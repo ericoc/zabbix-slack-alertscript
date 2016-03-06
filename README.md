@@ -30,7 +30,7 @@ The ["slack.sh" script](https://github.com/ericoc/zabbix-slack-alertscript/raw/m
 	[root@zabbix ~]# ls -lh /usr/local/share/zabbix/alertscripts/slack.sh
 	-rwxr-xr-x 1 root root 1.4K Dec 27 13:48 /usr/local/share/zabbix/alertscripts/slack.sh
 
-Feel free to edit the user name at the top of the script while making sure that you specify your correct Slack.com incoming web-hook URL:
+Make sure that you specify your correct Slack.com incoming web-hook URL and feel free to edit the sender user name at the top of the script:
 
 	# Slack incoming web-hook URL and user name
 	url='https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123'
