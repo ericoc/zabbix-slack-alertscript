@@ -86,7 +86,10 @@ Value: {ITEM.VALUE}
 Event URL: https://zabbbix.com/zabbix/tr_events.php?triggerid={TRIGGER.ID}&eventid={EVENT.ID}
 ```
 
-[[https://raw.githubusercontent.com/tiago-cruz-movile/zabbix-slack-alertscript/master/slack-doom.png]]
+- https://raw.githubusercontent.com/tiago-cruz-movile/zabbix-slack-alertscript/master/slack-doom.png
+
+![Slack Doom](https://raw.githubusercontent.com/tiago-cruz-movile/zabbix-slack-alertscript/master/slack-doom.png "Slack Doom")
+
 
 
 ## Testing
