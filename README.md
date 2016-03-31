@@ -86,6 +86,9 @@ Value: {ITEM.VALUE}
 Event URL: https://zabbbix.com/zabbix/tr_events.php?triggerid={TRIGGER.ID}&eventid={EVENT.ID}
 ```
 
+[[https://github.com/tiago-cruz-movile/zabbix-slack-alertscript/blob/master/slack-doom.png|alt=slack-doom]]
+
+
 ## Testing
 
 Assuming that you have set a valid Slack web-hook URL within your "slack.sh" file, you can execute the script manually (as opposed to via Zabbix) from Bash on a terminal:
