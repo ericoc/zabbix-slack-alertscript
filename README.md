@@ -74,6 +74,17 @@ Keeping the messages short is probably a good idea; use something such as the fo
 
 Additionally, you can have multiple different Zabbix users each with "Slack" media types that notify unique Slack users or channels upon different triggered Zabbix actions.
 
+A good setup using doom icons and colors to severity is some like this:
+
+```
+Name: Slack
+Default subject: PROBLEM: {TRIGGER.SEVERITY}
+
+Default message: 
+{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})
+Value: {ITEM.VALUE}
+Event URL: https://zabbbix.com/zabbix/tr_events.php?triggerid={TRIGGER.ID}&eventid={EVENT.ID}
+```
 
 ## Testing
 
