@@ -21,6 +21,9 @@ elif [[ "$subject" =~ PROBLEM* ]]; then
   if [[ "$subject" =~ Warning* ]]; then
     color="warning"
     emoji=':goberserk:'
+  elif [[ "$subject" =~ Average* ]]; then
+    color="#d87047"
+    emoji=':rage4:'
   elif [[ "$subject" =~ High* ]]; then
     color="danger"
     emoji=':feelsgood:'
@@ -29,7 +32,7 @@ elif [[ "$subject" =~ PROBLEM* ]]; then
     emoji=':finnadie:'
   else
     color="#0080ff"
-    emoji=':rage4:'
+    emoji=':rage3:'
   fi
 else
   color="warning"
