@@ -77,6 +77,7 @@ Additionally, you can have multiple different Zabbix users each with "Slack" med
 Zabbix 3.0+: as of [dmaarten](https://github.com/damaarten "damaarten") In addition, on Zabbix version 3.0+, you need to specify 3 script parameters when creating the new media:
 
 Script parameters:
+
 	{ALERT.SENDTO}
 	{ALERT.SUBJECT}
 	{ALERT.MESSAGE}
