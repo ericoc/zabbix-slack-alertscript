@@ -15,7 +15,7 @@ This works with Zabbix 1.8.x or greater - including 2.2, 2.4 and 3.x!
 * [Igor Shishkin](https://github.com/teran) for the ability to message users as well as channels!
 * Leslie at AspirationHosting for confirming that this script works on Zabbix 1.8.2!
 * [Hiromu Yakura](https://github.com/hiromu) for escaping quotation marks in the fields received from Zabbix to have valid JSON!
-
+* [Devlin Gonçalves](https://github.com/devlinrcg), [tkdywc](https://github.com/tkdywc), [damaarten](https://github.com/damaarten), and [lunchables](https://github.com/lunchables) for Zabbix 3.0 AlertScript documentation, suggestions and testing!
 
 Installation
 ------------
