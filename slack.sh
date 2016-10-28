@@ -12,6 +12,7 @@ username='Zabbix'
 # Get the Slack channel or user ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY)
 to="$1"
 subject="$2"
+text="${3//$'\n'/\\n}"
 
 # Change message emoji depending on the subject - smile (RECOVERY), frowning (PROBLEM), or ghost (for everything else)
 recoversub='^RECOVER(Y|ED)?$'
@@ -25,7 +26,7 @@ fi
 
 # The message that we want to send to Slack is the "subject" value ($2 / $subject - that we got earlier)
 #  followed by the message that Zabbix actually sent us ($3)
-message="${subject}: $3"
+message="${subject}: ${text}"
 
 # Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
 payload="payload={\"channel\": \"${to//\"/\\\"}\", \"username\": \"${username//\"/\\\"}\", \"text\": \"${message//\"/\\\"}\", \"icon_emoji\": \"${emoji}\"}"
