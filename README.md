@@ -88,6 +88,15 @@ Keeping the messages short is probably a good idea; use something such as the fo
 
 Additionally, you can have multiple different Zabbix users each with "Slack" media types that notify unique Slack users or channels upon different triggered Zabbix actions.
 
+Zabbix 3.0+: as of [dmaarten](https://github.com/damaarten "damaarten") In addition, on Zabbix version 3.0+, you need to specify 3 script parameters when creating the new media:
+
+Script parameters:
+
+	{ALERT.SENDTO}
+	{ALERT.SUBJECT}
+	{ALERT.MESSAGE}
+
+
 
 Testing
 -------
