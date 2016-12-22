@@ -22,7 +22,7 @@ Installation
 
 ### The script itself
 
-This [`slack.sh` script](https://github.com/ericoc/zabbix-slack-alertscript/raw/master/slack.sh) needs to be placed in the `AlertScriptsPath` directory that is specified within the Zabbix servers' configuration file (`zabbix_server.conf`) and must be executable by the user running the zabbix_server binary (usually "zabbix") on the Zabbix server before restarting the Zabbix server software:
+This [`slack.sh` script](https://github.com/ericoc/zabbix-slack-alertscript/raw/master/slack.sh) needs to be placed in the `AlertScriptsPath` directory that is specified within the Zabbix servers' configuration file (`zabbix_server.conf`) and must be executable by the user running the zabbix_server binary (usually "zabbix") on the Zabbix server:
 
 	[root@zabbix ~]# grep AlertScriptsPath /etc/zabbix/zabbix_server.conf
 	### Option: AlertScriptsPath
@@ -31,6 +31,7 @@ This [`slack.sh` script](https://github.com/ericoc/zabbix-slack-alertscript/raw/
 	[root@zabbix ~]# ls -lh /usr/local/share/zabbix/alertscripts/slack.sh
 	-rwxr-xr-x 1 root root 1.4K Dec 27 13:48 /usr/local/share/zabbix/alertscripts/slack.sh
 
+If you do change `AlertScriptsPath` (or any other values) within `zabbix_server.conf`, a restart of the Zabbix server software is required.
 
 Configuration
 -------------
@@ -88,6 +89,7 @@ Keeping the messages short is probably a good idea; use something such as the fo
 
 Additionally, you can have multiple different Zabbix users each with "Slack" media types that notify unique Slack users or channels upon different triggered Zabbix actions.
 
+If you are interesting in longer notification messages (with line breaks for example), you may want to reference [this pull request](https://github.com/ericoc/zabbix-slack-alertscript/pull/16) or [any number of forks of this repository](https://github.com/ericoc/zabbix-slack-alertscript/network).
 
 Testing
 -------
