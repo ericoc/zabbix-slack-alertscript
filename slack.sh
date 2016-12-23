@@ -23,10 +23,27 @@ else
 	emoji=':ghost:'
 fi
 
+# Set color of the posted message
+# You must insert "Severity: {TRIGGER.SEVERITY}" into your Zabbix message body for this to work
+if [[ "$subject" =~ 'OK' ]]; then
+    color="#36a64f"
+elif [[ "$3" =~ 'Severity: Warning' ]]; then
+    color="#FFC859"
+elif [[ "$3" =~ 'Severity: Average' ]]; then
+    color="#FFA059"
+elif [[ "$3" =~ 'Severity: High' ]]; then
+    color="#E97659"
+elif [[ "$3" =~ 'Severity: Disaster' ]]; then
+    color="#E45959"
+elif [[ "$3" =~ 'Severity: Information' ]]; then
+    color="#7499FF"
+fi
+
 # The message that we want to send to Slack is the "subject" value ($2 / $subject - that we got earlier)
 #  followed by the message that Zabbix actually sent us ($3)
-message="${subject}: $3"
+message="${subject}\n$3"
 
 # Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
-payload="payload={\"channel\": \"${to//\"/\\\"}\", \"username\": \"${username//\"/\\\"}\", \"text\": \"${message//\"/\\\"}\", \"icon_emoji\": \"${emoji}\"}"
+payload="payload={\"channel\": \"${to//\"/\\\"}\", \"username\": \"${username//\"/\\\"}\", \"icon_emoji\": \"${emoji}\", \"attachments\": [{  \"text\": \"${message//\"/\\\"} \", \"color\": \"${color}\" }] }"
+
 curl -m 5 --data-urlencode "${payload}" $url -A 'zabbix-slack-alertscript / https://github.com/ericoc/zabbix-slack-alertscript'
