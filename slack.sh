@@ -17,7 +17,7 @@ subject="$2"
 recoversub='^RECOVER(Y|ED)?$'
 if [[ "$subject" =~ ${recoversub} ]]; then
 	emoji=':smile:'
-elif [ "$subject == 'OK' ]; then
+elif [ "$subject" == 'OK' ]; then
 	emoji=':smile:'
 elif [ "$subject" == 'PROBLEM' ]; then
 	emoji=':frowning:'
