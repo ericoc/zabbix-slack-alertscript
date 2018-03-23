@@ -27,8 +27,29 @@ fi
 
 # The message that we want to send to Slack is the "subject" value ($2 / $subject - that we got earlier)
 #  followed by the message that Zabbix actually sent us ($3)
-message="${subject}: $3"
+message="$3"
+
+if [[ "$message" == *"OK"* ]]; then
+        color='#CCFFCC'
+elif [[ "$message" == *"Not classified"* ]]; then
+        color='#DBDBDB'
+elif [[ "$message" == *"Information"* ]]; then
+        color='#33CCFF'
+elif [[ "$message" == *"Warning"* ]]; then
+        color='#FFFFCC'
+elif [[ "$message" == *"Average"* ]]; then
+        color='#FFCCCC'
+elif [[ "$message" == *"High"* ]]; then
+        color='#FF9999'
+elif [[ "$message" == *"Disaster"* ]]; then
+        color='#FF6666'
+else
+        color='#DBDBDB'
+fi
 
 # Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
-payload="payload={\"channel\": \"${to//\"/\\\"}\", \"username\": \"${username//\"/\\\"}\", \"text\": \"${message//\"/\\\"}\", \"icon_emoji\": \"${emoji}\"}"
+payload="payload={\"channel\": \"${to//\"/\\\"}\",  \
+\"username\": \"${username//\"/\\\"}\", \
+\"attachments\": [{\"fallback\": \"${subject}\", \"title\": \"${subject}\", \"text\": \"${message}\", \"color\": \"${color}\"}], \
+\"icon_emoji\": \"${emoji}\"}"
 curl -m 5 --data-urlencode "${payload}" $url -A 'zabbix-slack-alertscript / https://github.com/ericoc/zabbix-slack-alertscript'
