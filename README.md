@@ -108,3 +108,29 @@ More Information
 * [Zabbix 2.2 custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
 * [Zabbix 2.4 custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
 * [Zabbix 3.x custom alertscripts documentation](https://www.zabbix.com/documentation/3.0/manual/config/notifications/media/script)
+
+---
+以上、オリジナルのRedme.mdより引用
+
+PSCS-Trial用設定方法
+-------------------
+1.slack.sh の以下の通り修正する。
+~~~~
+　　url='https://hooks.slack.com/services/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'　
+   emoji=':rotating_light:'
+~~~~   
+2.スクリプトファイル「slack.sh」を以下に保存する  
+　　/usr/lib/zabbix/alertscripts
+  
+3.パーミッションを 0774 に設定し、所有者はzabbix実行ユーザー、グループにする。  
+  例：  
+    chown zabbix:zabbix slack.sh  
+    chmod ug+x slack.sh  
+     
+4.Slack側で以下のようにWebhook設定をする。  
+
+| 設定  | 値 |
+| ------------- | ------------- |
+| 設定URL  | https://pfu-sibu.slack.com/apps/new/A0F7XDUAZ--web-  |
+| チャンネル  | pscs-alert  |
+| Webhook URL  | https://hooks.slack.com/services/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  |
