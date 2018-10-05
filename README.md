@@ -7,7 +7,7 @@ About
 This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write since I could not find any already existing/similar scripts.
 
 #### Versions
-This works with Zabbix 1.8.x or greater - including 2.2, 2.4 and 3.x!
+This works with Zabbix 1.8.x or greater - including 2.2, 2.4, 3.x. and 4.x!
 
 #### Huge thanks and appreciation to:
 
@@ -67,7 +67,7 @@ You need to create a media type as follows:
 
 ![Zabbix Media Type](https://pictures.ericoc.com/github/zabbix-mediatype.png "Zabbix Media Type")
 
-However, on Zabbix 3.x and greater, media types are configured slightly differently and you must explicity define the parameters sent to the `slack.sh` script. On Zabbix 3.x, three script parameters should be added as follows:
+However, on Zabbix 3.x and greater (including 4.x), media types are configured slightly differently and you must explicity define the parameters sent to the `slack.sh` script. On Zabbix 3.x and 4.x, three script parameters should be added as follows:
 
 * `{ALERT.SENDTO}`
 * `{ALERT.SUBJECT}`
@@ -108,3 +108,4 @@ More Information
 * [Zabbix 2.2 custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
 * [Zabbix 2.4 custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
 * [Zabbix 3.x custom alertscripts documentation](https://www.zabbix.com/documentation/3.0/manual/config/notifications/media/script)
+* [Zabbix 4.x custom alertscripts documentation](https://www.zabbix.com/documentation/4.0/manual/config/notifications/media/script)
