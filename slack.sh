@@ -35,7 +35,7 @@ message="${subject}: $3"
 url=${4-$url}
 # in case a 5th parameter is set, we will us it for the proxy settings
 proxy=${5-""}
-if [[ "$proxy" != "" ]] ; then
+if [[ "$proxy" != '' ]]; then
     proxy=" -x $proxy "
 fi
 
@@ -44,7 +44,7 @@ payload="payload={\"channel\": \"${to//\"/\\\"}\", \"username\": \"${username//\
 return=$(curl $proxy -sm 5 --data-urlencode "${payload}" $url -A 'zabbix-slack-alertscript / https://github.com/ericoc/zabbix-slack-alertscript')
 
 # If the response body was not what was expected from Slack ("ok"), something went wrong so print the Slack error to stderr and exit with non-zero
-if [ $return != 'ok' ]; then
+if [[ "$return" != 'ok' ]]; then
     >&2 echo "$return"
     exit 1
 fi
