@@ -39,6 +39,12 @@ if [[ "$proxy" != "" ]] ; then
     proxy=" -x $proxy "
 fi
 
-# Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
+# Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL, storing the return response body output
 payload="payload={\"channel\": \"${to//\"/\\\"}\", \"username\": \"${username//\"/\\\"}\", \"text\": \"${message//\"/\\\"}\", \"icon_emoji\": \"${emoji}\"}"
-curl $proxy -m 5 --data-urlencode "${payload}" $url -A 'zabbix-slack-alertscript / https://github.com/ericoc/zabbix-slack-alertscript'
+return=$(curl $proxy -sm 5 --data-urlencode "${payload}" $url -A 'zabbix-slack-alertscript / https://github.com/ericoc/zabbix-slack-alertscript')
+
+# If the response body was not what was expected from Slack ("ok"), something went wrong so print the Slack error to stderr and exit with non-zero
+if [ $return != 'ok' ]; then
+    >&2 echo "$return"
+    exit 1
+fi
