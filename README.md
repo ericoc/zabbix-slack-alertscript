@@ -95,13 +95,20 @@ If you are interesting in longer notification messages (with line breaks for exa
 
 Testing
 -------
-Assuming that you have set a valid Slack.com web-hook URL within your `slack.sh` file, you can execute the script manually (as opposed to via Zabbix) from Bash on a terminal:
 
-	$ bash slack.sh '@ericoc' PROBLEM 'Oh no! Something is wrong!'
+The new [Testing media types](https://www.zabbix.com/documentation/4.2/manual/web_interface/frontend_sections/administration/mediatypes#testing_media_types) feature within Zabbix 4.2 should allow you to test sending messages to Slack:
+
+![Zabbix Media Type Test](img/zabbix-media-type-test.png "Zabbix Media Type Test")
+
+![Zabbix Media Type Test Message](img/zabbix-media-type-test-message.png "Zabbix Media Type Test Message")
+
+Alternatively, you can execute the script manually (as opposed to via Zabbix) from Bash on a terminal:
+
+	$ bash slack.sh '@ericoc' 'Problem: This is a test' 'This is a test of something being wrong!'
 
 Alerting a specific user name results in the message actually coming from the "Slackbot" user using a sort-of "spoofed" user name within the message. A channel alert is sent as you would normally expect from whatever user name you specify in `slack.sh`:
 
-![Slack Testing](https://pictures.ericoc.com/github/slack-example.png "Slack Testing")
+![Slack Terminal Example Message](img/terminal-example-message.png "Slack Terminal Example Message")
 
 
 More Information
