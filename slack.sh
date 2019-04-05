@@ -5,42 +5,48 @@ url='CHANGEME'      # example: https://hooks.slack.com/services/QW3R7Y/D34DC0D3/
 username='Zabbix'
 
 ## Values received by this script:
-# To = $1 (Slack channel or user to send the message to, specified in the Zabbix web interface; "@username" or "#channel")
-# Subject = $2 (usually either PROBLEM or RECOVERY/OK)
-# Message = $3 (whatever message the Zabbix action sends, preferably something like "Zabbix server is unreachable for 5 minutes - Zabbix server (127.0.0.1)")
-# url = $4 (optional url to replace the hardcoded one. useful when multiple groups have seperate slack environments)
-# proxy = $5 (optional proxy, including port)
+# To = $1 / Slack channel or user to send the message to, specified in the Zabbix web interface; "@username" or "#channel"
+# Subject = $2 / subject of the message sent by Zabbix; by default, it is usually something like "(Problem|Resolved): Lack of free swap space on Zabbix server"
+# Message = $3 / message body sent by Zabbix; by default, it is usually approximately 4 lines detailing the specific trigger involved
+# Alternate URL = $4 (optional) / alternative Slack.com web-hook URL to replace the above hard-coded one; useful when multiple groups have seperate Slack teams
+# Proxy = $5 (optional) / proxy host including port, such as "example.com:8080")
 
-# Get the Slack channel or user ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY/OK)
+# Get the user/channel ($1), subject ($2), and message ($3)
 to="$1"
 subject="$2"
+message="$3"
 
-# Change message emoji depending on the subject
+# Change message emoji and notification color depending on the subject indicating whether it is a trigger going in to problem state or recovering
 recoversub='^RECOVER(Y|ED)?$|^OK$|^Resolved.*'
 problemsub='^PROBLEM.*|^Problem.*'
 
 if [[ "$subject" =~ $recoversub ]]; then
     emoji=':smile:'
+    color='#0C7BDC'
 elif [[ "$subject" =~ $problemsub ]]; then
     emoji=':frowning:'
+    color='#FFC20A'
 else
     emoji=':question:'
+    color='#CCCCCC'
 fi
 
-# The message that we want to send to Slack is the "subject" value ($2 / $subject - that we got earlier)
-# followed by the message that Zabbix actually sent us ($3)
-message="${subject}: $3"
-
-# in case a 4th parameter is set, we will use it for the url
+# Replace the above hard-coded Slack.com web-hook URL entirely, if one was passed via the optional 4th parameter
 url=${4-$url}
-# in case a 5th parameter is set, we will us it for the proxy settings
+
+# Use optional 5th parameter as proxy server for curl
 proxy=${5-""}
 if [[ "$proxy" != '' ]]; then
-    proxy=" -x $proxy "
+    proxy="-x $proxy"
 fi
 
-# Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL, storing the return response body output
-payload="payload={\"channel\": \"${to//\"/\\\"}\", \"username\": \"${username//\"/\\\"}\", \"text\": \"${message//\"/\\\"}\", \"icon_emoji\": \"${emoji}\"}"
+# Build JSON payload which will be HTTP POST'ed to the Slack.com web-hook URL
+payload="payload={\"channel\": \"${to//\"/\\\"}\",  \
+\"username\": \"${username//\"/\\\"}\", \
+\"attachments\": [{\"fallback\": \"${subject//\"/\\\"}\", \"title\": \"${subject//\"/\\\"}\", \"text\": \"${message//\"/\\\"}\", \"color\": \"${color}\"}], \
+\"icon_emoji\": \"${emoji}\"}"
+
+# Execute the HTTP POST request of the payload to Slack via curl, storing stdout (the response body)
 return=$(curl $proxy -sm 5 --data-urlencode "${payload}" $url -A 'zabbix-slack-alertscript / https://github.com/ericoc/zabbix-slack-alertscript')
 
 # If the response body was not what was expected from Slack ("ok"), something went wrong so print the Slack error to stderr and exit with non-zero
