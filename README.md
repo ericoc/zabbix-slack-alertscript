@@ -108,7 +108,4 @@ Alerting a specific user name results in the message actually coming from the "s
 More Information
 ----------------
 * [Slack incoming web-hook functionality](https://my.slack.com/services/new/incoming-webhook)
-* [Zabbix 2.2 custom alertscripts documentation](https://www.zabbix.com/documentation/2.2/manual/config/notifications/media/script)
-* [Zabbix 2.4 custom alertscripts documentation](https://www.zabbix.com/documentation/2.4/manual/config/notifications/media/script)
-* [Zabbix 3.x custom alertscripts documentation](https://www.zabbix.com/documentation/3.0/manual/config/notifications/media/script)
-* [Zabbix 4.x custom alertscripts documentation](https://www.zabbix.com/documentation/4.0/manual/config/notifications/media/script)
+* [Zabbix custom alertscripts documentation](https://www.zabbix.com/documentation/current/manual/config/notifications/media/script)
