@@ -9,7 +9,7 @@ username='Zabbix'
 # Subject = $2 / subject of the message sent by Zabbix; by default, it is usually something like "(Problem|Resolved): Lack of free swap space on Zabbix server"
 # Message = $3 / message body sent by Zabbix; by default, it is usually approximately 4 lines detailing the specific trigger involved
 # Alternate URL = $4 (optional) / alternative Slack.com web-hook URL to replace the above hard-coded one; useful when multiple groups have seperate Slack teams
-# Proxy = $5 (optional) / proxy host including port, such as "example.com:8080")
+# Proxy = $5 (optional) / proxy host including port (such as "example.com:8080")
 
 # Get the user/channel ($1), subject ($2), and message ($3)
 to="$1"
