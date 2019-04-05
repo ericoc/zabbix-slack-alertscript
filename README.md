@@ -84,7 +84,7 @@ An optional 5th script parameter can be added for proxy support. You can supply 
 
 Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com channel ("#alerts" in the example) or user name (such as "@ericoc") that you want messages to go to in the "Send to" field as seen below:
 
-![Zabbix User](https://pictures.ericoc.com/github/zabbix-user.png "Zabbix User")
+![Zabbix User](img/zabbix-user.png "Zabbix User")
 
 Finally, an action can then be created on the "Actions" sub-tab of the "Configuration" tab within the Zabbix servers web interface to notify the Zabbix "Slack" user.
 You can stick with the default subject and message text for your problem (and optional recovery) operations.
