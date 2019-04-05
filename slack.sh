@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Slack incoming web-hook URL and user name
-url='CHANGEME'		# example: https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123
+url='CHANGEME'      # example: https://hooks.slack.com/services/QW3R7Y/D34DC0D3/BCADFGabcDEF123
 username='Zabbix'
 
 ## Values received by this script:
@@ -18,17 +18,17 @@ subject="$2"
 # Change message emoji depending on the subject - smile (RECOVERY/OK), frowning (PROBLEM), or ghost (for everything else)
 recoversub='^RECOVER(Y|ED)?$'
 if [[ "$subject" =~ ${recoversub} ]]; then
-	emoji=':smile:'
+    emoji=':smile:'
 elif [ "$subject" == 'OK' ]; then
-	emoji=':smile:'
+    emoji=':smile:'
 elif [ "$subject" == 'PROBLEM' ]; then
-	emoji=':frowning:'
+    emoji=':frowning:'
 else
-	emoji=':ghost:'
+    emoji=':ghost:'
 fi
 
 # The message that we want to send to Slack is the "subject" value ($2 / $subject - that we got earlier)
-#  followed by the message that Zabbix actually sent us ($3)
+# followed by the message that Zabbix actually sent us ($3)
 message="${subject}: $3"
 
 # in case a 4th parameter is set, we will use it for the url
@@ -36,7 +36,7 @@ url=${4-$url}
 # in case a 5th parameter is set, we will us it for the proxy settings
 proxy=${5-""}
 if [[ "$proxy" != "" ]] ; then
-  proxy=" -x $proxy "
+    proxy=" -x $proxy "
 fi
 
 # Build our JSON payload and send it as a POST request to the Slack incoming web-hook URL
