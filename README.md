@@ -42,7 +42,7 @@ Configuration
 
 An incoming web-hook integration must be created within your Slack.com account which can be done at [https://my.slack.com/services/new/incoming-webhook](https://my.slack.com/services/new/incoming-webhook) as shown below:
 
-![Slack.com Incoming Web-hook Integration](https://pictures.ericoc.com/github/newapi/slack-integration.png "Slack.com Incoming Web-hook Integration")
+![Slack.com Incoming Web-hook Integration](img/slack-integration.png "Slack.com Incoming Web-hook Integration")
 
 Given the above screenshot, the incoming Slack.com web-hook URL would be:
 
@@ -67,7 +67,7 @@ You need to create a media type as follows:
 
 ...and ensure that it is enabled before clicking "Save", like so:
 
-![Zabbix Media Type](https://pictures.ericoc.com/github/zabbix-mediatype.png "Zabbix Media Type")
+![Zabbix Media Type](img/zabbix-mediatype.png "Zabbix Media Type")
 
 However, on Zabbix 3.x and greater (including 4.x), media types are configured slightly differently and you must explicity define the parameters sent to the `slack.sh` script. On Zabbix 3.x and 4.x, three script parameters should be added as follows:
 
@@ -77,7 +77,7 @@ However, on Zabbix 3.x and greater (including 4.x), media types are configured s
 
 ...as shown here:
 
-![Zabbix 3.x Media Type](https://pictures.ericoc.com/github/zabbix3-mediatype.png "Zabbix 3.x Media Type")
+![Zabbix 3.x Media Type](img/zabbix3-mediatype.png "Zabbix 3.x Media Type")
 
 An optional 4th script parameter can be added to over-ride the `url` hard-coded in the `slack.sh` script with the Slack.com incoming web-hook URL. This makes it possible to reuse the script for a different user or group to be alerted in a seperate slack environment.
 An optional 5th script parameter can be added for proxy support. You can supply a `host:port` parameter (such as `example.com:8080`) that will be used when connecting to the Slack.com web-hook URL.
