@@ -7,7 +7,7 @@ About
 This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write since I could not find any already existing/similar scripts.
 
 #### Versions
-This works with Zabbix 1.8.x or greater - including 2.2, 2.4, 3.x. and 4.x!
+This works with Zabbix 1.8 or greater - including 2.x and 3.x, as well as the newest 4.0 and 4.2 versions!
 
 #### Huge thanks and appreciation to:
 
