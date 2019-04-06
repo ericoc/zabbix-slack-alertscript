@@ -67,7 +67,7 @@ You need to create a media type as follows:
 
 ...and ensure that it is enabled before clicking "Save", like so:
 
-![Zabbix Media Type](img/zabbix-mediatype.png "Zabbix Media Type")
+![Old Zabbix Media Type](img/old-zabbix-media-type.png "Old Zabbix Media Type")
 
 However, on Zabbix 3.x and greater (including 4.x), media types are configured slightly differently and you must explicity define the parameters sent to the `slack.sh` script. On Zabbix 3.x and 4.x, three script parameters should be added as follows:
 
@@ -77,7 +77,7 @@ However, on Zabbix 3.x and greater (including 4.x), media types are configured s
 
 ...as shown here:
 
-![Zabbix 3.x Media Type](img/zabbix3-mediatype.png "Zabbix 3.x Media Type")
+![Zabbix Media Type](img/zabbix-media-type.png "Zabbix Media Type")
 
 An optional 4th script parameter can be added to over-ride the `url` hard-coded in the `slack.sh` script with the Slack.com incoming web-hook URL. This makes it possible to reuse the script for a different user or group to be alerted in a seperate slack environment.
 An optional 5th script parameter can be added for proxy support. You can supply a `host:port` parameter (such as `example.com:8080`) that will be used when connecting to the Slack.com web-hook URL.
