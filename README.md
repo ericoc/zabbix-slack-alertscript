@@ -79,8 +79,9 @@ However, on Zabbix 3.x and greater (including 4.x), media types are configured s
 
 ![Zabbix Media Type](img/zabbix-media-type.png "Zabbix Media Type")
 
-An optional 4th script parameter can be added to over-ride the `url` hard-coded in the `slack.sh` script with the Slack.com incoming web-hook URL. This makes it possible to reuse the script for a different user or group to be alerted in a seperate slack environment.
-An optional 5th script parameter can be added for proxy support. You can supply a `host:port` parameter (such as `example.com:8080`) that will be used when connecting to the Slack.com web-hook URL.
+An optional fourth script parameter can be added to over-ride the `url` value that is hard-coded in the `slack.sh` script. This makes it possible to re-use the script for multiple Slack teams.
+
+An optional fifth script parameter can be added for proxy support. You can supply a `host:port` value (such as `example.com:8080`) that will be used when connecting to the Slack.com web-hook URL.
 
 Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com channel ("#alerts" in the example) or user name (such as "@ericoc") that you want messages to go to in the "Send to" field as seen below:
 
