@@ -4,11 +4,19 @@ Zabbix Slack AlertScript
 
 About
 -----
-This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/).
-I originally created this since I could not find any already existing/similar scripts at the time. This is [one of many](https://www.zabbix.com/integrations/slack) now.
+This is simply a Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/). I originally created this since I could not find any already existing/similar scripts at the time. This is [one of many](https://www.zabbix.com/integrations/slack) now.
 
 #### Versions
+
 This works with Zabbix 1.8 or greater - including 2.x and 3.x, as well as the newest 4.0 and 4.2 versions!
+
+##### 4.4
+
+The latest version of Zabbix (4.4) has included its own built-in webhook media type which is documented here:
+
+[Official Zabbix Documentation 4.4 > Media Types > Webhook](https://www.zabbix.com/documentation/4.4/manual/config/notifications/media/webhook)
+
+The Zabbix 4.4 webhook documentation includes a specific example of how to set up Slack webhook notifications with their new included feature.
 
 #### Thanks
 Huge thanks and appreciation to every one who has submitted issues or pull requests including:
