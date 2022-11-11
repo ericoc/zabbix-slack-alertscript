@@ -14,7 +14,7 @@ username='Zabbix'
 # Get the user/channel ($1), subject ($2), and message ($3)
 to="$1"
 subject="$2"
-message="$3"
+message="${3//[$'\r']}"
 
 # Change message emoji and notification color depending on the subject indicating whether it is a trigger going in to problem state or recovering
 recoversub='^RECOVER(Y|ED)?$|^OK$|^Resolved.*'
